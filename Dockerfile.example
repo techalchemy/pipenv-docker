@@ -1,0 +1,11 @@
+FROM techalchemy/pipenv-base
+
+RUN set -ex && mkdir /app
+WORKDIR /app
+
+COPY Pipfile Pipfile
+COPY Pipfile.lock Pipfile.lock
+
+RUN set -ex && pipenv install --deploy --system
+
+CMD ['/bin/bash']
