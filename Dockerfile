@@ -94,7 +94,11 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
+RUN set -ex && pip install --upgrade --no-cache-dir virtualenv virtualenv-clone
+
 RUN set -ex && add-apt-repository -y -u ppa:pypa/ppa && \
-    apt-get install pipenv
+    apt-get update && \
+    apt-get upgrade && \
+    apt-get -y -qq install pipenv python3-virtualenv python3-virtualenv-clone
 
 CMD ["/bin/bash"]
