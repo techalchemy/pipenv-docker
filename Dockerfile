@@ -30,6 +30,7 @@ RUN set -ex \
 		dpkg-dev \
 		tcl-dev \
 		tk-dev \
+		libbz2-dev \
 	' \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
 	\
